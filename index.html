@@ -52,18 +52,20 @@
                         <p class="mt-3 mb-6">Area (A) = 0.5 &Cross; b &Cross; h</p>
                         <!-- input section -->
                         <div class="mb-9">
-                            <input type="number" id=""
+                            <!-- Base input -->
+                            <input type="number" id="tri-base"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold"
                                 placeholder="Base">
                             <p class="ml-2 inline">cm</p>
-                            <input type="number" id=""
+                            <!-- Height Input -->
+                            <input type="number" id="tri-height"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold ml-4"
                                 placeholder="Height">
                             <p class="ml-2 inline">cm</p>
                         </div>
 
                         <!-- Button -->
-                        <button
+                        <button onclick="calculateTriangleArea()"
                             class="w-full mx-auto h-14 bg-sky-600 rounded-lg text-xl font-extrabold">Calculate</button>
                     </div>
                 </div>
@@ -78,18 +80,20 @@
                         <p class="mt-3 mb-6">Area (A) = w &Cross; l</p>
                         <!-- input section -->
                         <div class="mb-9">
-                            <input type="number" id=""
+                            <!-- rectangle width -->
+                            <input type="number" id="rect-width"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold"
                                 placeholder="Width">
                             <p class="ml-2 inline">cm</p>
-                            <input type="number" id=""
+                            <!-- Rectangle height -->
+                            <input type="number" id="rect-height"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold ml-4"
                                 placeholder="Height">
                             <p class="ml-2 inline">cm</p>
                         </div>
 
                         <!-- Button -->
-                        <button
+                        <button onclick=" calculateRectangleArea()"
                             class="w-full mx-auto h-14 bg-sky-600 rounded-lg text-xl font-extrabold">Calculate</button>
                     </div>
                 </div>
@@ -104,18 +108,20 @@
                         <p class="mt-3 mb-6">Area (A) = b &Cross; h</p>
                         <!-- input section -->
                         <div class="mb-9">
-                            <input type="number" id=""
+                            <!-- Parallelogram Base input -->
+                            <input type="number" id="para-base"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold"
                                 placeholder="Base">
                             <p class="ml-2 inline">cm</p>
-                            <input type="number" id=""
+                            <!-- Parallelogram height input -->
+                            <input type="number" id="para-height"
                                 class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold ml-4"
                                 placeholder="Height">
                             <p class="ml-2 inline">cm</p>
                         </div>
 
                         <!-- Button -->
-                        <button
+                        <button onclick="calculateParallelogramArea()"
                             class="w-full mx-auto h-14 bg-sky-600 rounded-lg text-xl font-extrabold">Calculate</button>
                     </div>
                 </div>
@@ -125,6 +131,8 @@
 
         </section>
     </main>
+    <!-- Script -->
+    <script src="./scripts/area.js"></script>
 </body>
 
 </html>
