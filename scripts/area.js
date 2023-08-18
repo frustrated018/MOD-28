@@ -40,3 +40,8 @@ function calculatePentagonArea() {
   console.log(area);
   clearInputById('perimeter', 'apothem');
 }
+function calculateEllipseArea() {
+  const area = getInputValue("el-major") * getInputValue("el-minor") * Math.PI;
+  console.log(area);
+  clearInputById('el-major', 'el-minor');
+}
