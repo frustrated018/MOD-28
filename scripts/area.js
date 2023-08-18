@@ -5,30 +5,28 @@ function clearInputById(id) {
   inputElement.value = "";
 }
 
+// Making a reusable function to get the height and base -->
+function getValue(id) {
+    const value = parseFloat(document.getElementById(id).value);
+    return value;
+}
+
 function calculateTriangleArea() {
-  const area =
-    parseFloat(document.getElementById("tri-base").value) *
-    parseFloat(document.getElementById("tri-height").value) *
-    0.5;
+  const area = getValue('tri-base') * getValue('tri-height')  *  0.5;
   // return area;
   console.log(area);
   clearInputById("tri-base");
   clearInputById("tri-height");
 }
 function calculateRectangleArea() {
-  const area =
-    parseFloat(document.getElementById("rect-width").value) *
-    parseFloat(document.getElementById("rect-height").value);
-
+  const area = getValue('rect-width') * getValue('rect-height');
   console.log(area);
 
   clearInputById("rect-width");
   clearInputById("rect-height");
 }
 function calculateParallelogramArea() {
-  const area =
-    parseFloat(document.getElementById("para-base").value) *
-    parseFloat(document.getElementById("para-height").value);
+  const area = getValue('para-base') * getValue('para-height');
   console.log(area);
 
   clearInputById("para-base");
