@@ -6,29 +6,36 @@ function clearInputById(id) {
 }
 
 // Making a reusable function to get the height and base -->
-function getValue(id) {
-    const value = parseFloat(document.getElementById(id).value);
-    return value;
+function getInputValue(id) {
+  const value = parseFloat(document.getElementById(id).value);
+  return value;
 }
 
 function calculateTriangleArea() {
-  const area = getValue('tri-base') * getValue('tri-height')  *  0.5;
+  const area = getInputValue("tri-base") * getInputValue("tri-height") * 0.5;
   // return area;
   console.log(area);
   clearInputById("tri-base");
   clearInputById("tri-height");
 }
 function calculateRectangleArea() {
-  const area = getValue('rect-width') * getValue('rect-height');
+  const area = getInputValue("rect-width") * getInputValue("rect-height");
   console.log(area);
 
   clearInputById("rect-width");
   clearInputById("rect-height");
 }
 function calculateParallelogramArea() {
-  const area = getValue('para-base') * getValue('para-height');
+  const area = getInputValue("para-base") * getInputValue("para-height");
   console.log(area);
 
   clearInputById("para-base");
   clearInputById("para-height");
+}
+function calculateRhombusArea() {
+  const area = getInputValue("diagonal-1") * getInputValue("diagonal-2");
+  console.log(area);
+
+  clearInputById("diagonal-1");
+  clearInputById("diagonal-2");
 }
