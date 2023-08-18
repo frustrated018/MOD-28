@@ -33,17 +33,19 @@ function addToCalculationEntry(entryName, value) {
   entry.innerHTML = `<p class="text-neutral-700 text-base font-normal">
       ${
         entryPoint.childElementCount + 1
-      }. ${entryName} <span id="cm-value">${value} cm</span><sup>2</sup></p>
-      <button class="w-24 h-8 bg-sky-600 rounded text-xs text-white" onclick="convert()">Convert to m<sup>2</sup></button>`;
+      }. ${entryName} <span id="cm-value">${value}</span>cm<sup>2</sup></p>
+      <button class="w-24 h-8 bg-sky-600 rounded text-xs text-white" onclick="convert(event)">Convert to m<sup>2</sup></button>`;
   entryPoint.appendChild(entry);
 }
 
 // Convert button function
-function convert() {
-    const valueInCm = parseFloat(document.getElementById("cm-value").innerText);
+function convert(event) {
+    console.log(event.target.parentElement);
+    const valueInCm = parseFloat(event.target.parentElement.querySelector('#cm-value').innerText);
     const valueInM = (valueInCm / 10000).toFixed(4);
-    const cmValueSpan = document.getElementById("cm-value");
-    cmValueSpan.innerText = `${valueInM} m`;
+    // const cmValueSpan = document.getElementById("cm-value");
+    event.target.parentElement.querySelector('#cm-value').innerText = `${valueInM}`;
+    return;
     
 }
 
