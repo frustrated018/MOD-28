@@ -26,28 +26,25 @@ function validate(area) {
 }
 // Adding to calculation entry
 function addToCalculationEntry(entryName, value) {
+    console.log(entryName, value);
   const entryPoint = document.getElementById("calculation-entry");
   const entry = document.createElement("div");
   entry.className = "flex gap-3 items-center justify-evenly my-4";
-  entry.innerHTML = `<p class = "text-neutral-700 text-base font-normal">
-    ${
-      entryPoint.childElementCount + 1
-    }. ${entryName} <span id = "cm-value">${value} cm</span><sup>2</sup></p>
-    <button id="btn-convert" onclick="convert(${value})"class=" w-24 h-8 bg-sky-600 rounded text-xs text-white">Convert to m<sup>2</sup></button>`;
+  entry.innerHTML = `<p class="text-neutral-700 text-base font-normal">
+      ${
+        entryPoint.childElementCount + 1
+      }. ${entryName} <span id="cm-value">${value} cm</span><sup>2</sup></p>
+      <button class="w-24 h-8 bg-sky-600 rounded text-xs text-white" onclick="convert()">Convert to m<sup>2</sup></button>`;
   entryPoint.appendChild(entry);
-  if(convertBtn){
-      convertBtn.removeEventListener('click', convert);
-    }
-   let convertBtn = document.getElementById("btn-convert");
-  convertBtn.addEventListener('click', convert);
 }
-// convert button function
-function convert(valueInCm) {
-//   const valueInCm = parseFloat(document.getElementById("cm-value").innerText);
-   const valueInM = Math.pow(valueInCm, 2);
-   const cmValueSpan = document.getElementById("cm-value");
-   cmValueSpan.innerText= `${valueInM} m`;
-   return;
+
+// Convert button function
+function convert() {
+    const valueInCm = parseFloat(document.getElementById("cm-value").innerText);
+    const valueInM = (valueInCm / 10000).toFixed(4);
+    const cmValueSpan = document.getElementById("cm-value");
+    cmValueSpan.innerText = `${valueInM} m`;
+    
 }
 
 /************************* Triangle **************************/
@@ -88,7 +85,7 @@ function calculatePentagonArea() {
 /************************* Ellipse **************************/
 function calculateEllipseArea() {
   const area = getInputValue("el-major") * getInputValue("el-minor") * Math.PI;
-  clearInputById("el-major", "el-minor");
   validate(area);
+  clearInputById("el-major", "el-minor");
   addToCalculationEntry("Ellipse", area.toFixed(3));
 }
