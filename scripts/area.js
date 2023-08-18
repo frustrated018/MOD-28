@@ -26,7 +26,7 @@ function validate(area) {
 }
 // Adding to calculation entry
 function addToCalculationEntry(entryName, value) {
-    console.log(entryName, value);
+  console.log(entryName, value);
   const entryPoint = document.getElementById("calculation-entry");
   const entry = document.createElement("div");
   entry.className = "flex gap-3 items-center justify-evenly my-4";
@@ -40,13 +40,18 @@ function addToCalculationEntry(entryName, value) {
 
 // Convert button function
 function convert(event) {
-    console.log(event.target.parentElement);
-    const valueInCm = parseFloat(event.target.parentElement.querySelector('#cm-value').innerText);
-    const valueInM = (valueInCm / 10000).toFixed(4);
-    // const cmValueSpan = document.getElementById("cm-value");
-    event.target.parentElement.querySelector('#cm-value').innerText = `${valueInM}`;
-    return;
-    
+  let parent = event.target.parentElement;
+
+  if (parent.classList.contains("used")){
+    return alert("Already converted");
+    }
+
+  const valueInCm = parseFloat(parent.querySelector("#cm-value").innerText);
+  const valueInM = (valueInCm / 10000).toFixed(4);
+  parent.querySelector("#cm-value").innerText = `${valueInM}`;
+
+  parent.classList.add("used");
+  return;
 }
 
 /************************* Triangle **************************/
