@@ -26,27 +26,35 @@ function validate(area) {
 }
 // Adding to calculation entry
 function addToCalculationEntry(entryName, value) {
-    console.log(entryName, value);
+  console.log(entryName, value);
   const entryPoint = document.getElementById("calculation-entry");
   const entry = document.createElement("div");
-  entry.className = "flex gap-3 items-center justify-evenly my-4";
+  entry.className = "flex items-center gap-3 my-4 justify-evenly";
   entry.innerHTML = `<p class="text-neutral-700 text-base font-normal">
       ${
         entryPoint.childElementCount + 1
       }. ${entryName} <span id="cm-value">${value}</span>cm<sup>2</sup></p>
-      <button class="w-24 h-8 bg-sky-600 rounded text-xs text-white" onclick="convert(event)">Convert to m<sup>2</sup></button>`;
+      <button class="w-24 h-8 bg-sky-600 rounded text-xs text-white" onclick="convert(event)"><span>Convert to m<sup>2</sup></span></button>`;
   entryPoint.appendChild(entry);
 }
 
 // Convert button function
 function convert(event) {
-    console.log(event.target.parentElement);
-    const valueInCm = parseFloat(event.target.parentElement.querySelector('#cm-value').innerText);
-    const valueInM = (valueInCm / 10000).toFixed(4);
-    // const cmValueSpan = document.getElementById("cm-value");
-    event.target.parentElement.querySelector('#cm-value').innerText = `${valueInM}`;
-    return;
-    
+  let parent;
+  if (event.target.tagName == "SPAN") {
+    parent = event.target.parentElement.parentElement;
+  } else {
+    parent = event.target.parentElement;
+  }
+
+  if (parent.classList.contains("used")) return alert("Already used");
+
+  const valueInCm = parseFloat(parent.querySelector("#cm-value").innerText);
+  const valueInM = (valueInCm / 10000).toFixed(4);
+  parent.querySelector("#cm-value").innerText = `${valueInM}`;
+
+  parent.classList.add("used");
+  return;
 }
 
 /************************* Triangle **************************/
