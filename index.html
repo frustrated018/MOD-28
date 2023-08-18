@@ -153,6 +153,34 @@
                             class="w-full mx-auto h-14 bg-sky-600 rounded-lg text-xl font-extrabold text-white">Calculate</button>
                     </div>
                 </div>
+                <!-- Pentagon Card -->
+                <div class="card bg-base-100  hover:bg-sky-100 rounded-lg border border-neutral-900 border-opacity-10 text-center">
+                    <!-- Image -->
+                    <div class="w-[90%] mx-auto p-8">
+                        <img class="mx-auto " src="./images/pentagon.png" alt="Pentagon">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-neutral-700 text-[25px] font-bold">Pentagon</h2>
+                        <p class="mt-3 mb-6">Area (A) = 0.5 &Cross; p &Cross; a</p>
+                        <!-- input section -->
+                        <div class="mb-9">
+                            <!-- Pentagon Base input -->
+                            <input type="number" id="perimeter"
+                                class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold"
+                                placeholder="p">
+                            <p class="ml-2 inline">cm</p>
+                            <!-- Pentagon height input -->
+                            <input type="number" id="apothem"
+                                class="text-xl w-[84px] px-2 py-2 bg-zinc-100 rounded-md border inline font-semibold ml-4"
+                                placeholder="a">
+                            <p class="ml-2 inline">cm</p>
+                        </div>
+
+                        <!-- Button -->
+                        <button onclick="calculatePentagonArea()"
+                            class="w-full mx-auto h-14 bg-sky-600 rounded-lg text-xl font-extrabold text-white">Calculate</button>
+                    </div>
+                </div>
 
             </div>
             <!-- Area calculator -->
